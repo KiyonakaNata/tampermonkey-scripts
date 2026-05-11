@@ -6,6 +6,8 @@
 // @match        https://claude.ai/*
 // @grant        none
 // @run-at       document-idle
+// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_done_beep.user.js
+// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_done_beep.user.js
 // ==/UserScript==
 
 (function () {

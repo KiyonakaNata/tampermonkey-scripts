@@ -17,11 +17,19 @@
 ## インストール
 
 1. ブラウザに [Tampermonkey](https://www.tampermonkey.net/) 拡張をインストール
-2. このリポジトリで使いたい `.user.js` ファイルをクリックして開く
-3. GitHub上の **Raw** ボタンから raw ファイルを表示すると Tampermonkey がインストール画面を出す
-4. 内容を確認して「インストール」
+2. 下記の各スクリプトの **Raw URL** をクリックすると Tampermonkey のインストール画面が開く
+3. 内容を確認して「インストール」
 
-ローカルファイルから入れる場合は、Tampermonkey ダッシュボードの「ユーティリティ → ファイル」からインポート。
+### Raw URL 一覧
+
+- [claude_auto_continue.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_auto_continue.user.js)
+- [claude_done_beep.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_done_beep.user.js)
+- [claude_artifact_diff.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_artifact_diff.user.js)
+- [claude_shift_enter_send.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_shift_enter_send.user.js)
+- [claude_hide_gdrive_button.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js)
+
+各スクリプトのヘッダに `@updateURL` / `@downloadURL` が設定されているため、
+**インストール後は git push する度に Tampermonkey が自動更新を取得** します(デフォルト約24時間ごと、手動更新は Tampermonkey ダッシュボードの「アップデートを確認」から)。
 
 ## バージョン管理
 

@@ -5,6 +5,8 @@
 // @description  アーティファクト更新時に前バージョンとのDiffをブラウザ内で表示（外部依存なし）
 // @match        https://claude.ai/*
 // @grant        GM_addStyle
+// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_artifact_diff.user.js
+// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_artifact_diff.user.js
 // ==/UserScript==
 
 (function () {

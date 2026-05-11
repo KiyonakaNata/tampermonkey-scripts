@@ -7,6 +7,8 @@
 // @match        https://*.claude.ai/*
 // @run-at       document-start
 // @grant        none
+// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js
+// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js
 // ==/UserScript==
 
 (() => {

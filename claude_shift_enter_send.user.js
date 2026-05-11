@@ -6,6 +6,8 @@
 // @match        https://claude.ai/*
 // @grant        none
 // @run-at       document-start
+// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_shift_enter_send.user.js
+// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_shift_enter_send.user.js
 // ==/UserScript==
 
 (function () {
