@@ -2,7 +2,7 @@
 // @name         Claude.ai - Ctrl+Enter to Send
 // @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
 // @author       KiyonakaNata
-// @version      1.1
+// @version      1.2
 // @description  Enter / Shift+Enter で改行、Ctrl+Enter で送信に変更
 // @match        https://claude.ai/*
 // @grant        none
@@ -15,12 +15,25 @@
   'use strict';
 
   function findSendButton(fromEl) {
-    // 祖先を遡って最初に見つかる type="submit" ボタンを使う
-    // (メイン入力は form 内、編集モードは form なしのため form 依存だと取れない)
+    // 祖先を遡って近い順に探す:
+    // 1. aria-label が「送信」または "Send" を含むボタン (メイン入力欄の送信ボタン)
+    // 2. text が「保存」または "Save" の submit ボタン (編集モードの保存ボタン)
+    //
+    // 注: メイン入力欄の「送信」ボタンは type="button" で、aria-label="メッセージを送信"。
+    // 同階層に type="submit" の他ボタン(プロジェクト選択等)が居るため type だけでは誤爆する。
     let node = fromEl;
     while (node && node !== document.body) {
-      const btn = node.querySelector('button[type="submit"]:not([disabled])');
-      if (btn) return btn;
+      const send = node.querySelector(
+        'button[aria-label*="送信"]:not([disabled]), button[aria-label*="Send" i]:not([disabled])'
+      );
+      if (send) return send;
+
+      const submits = node.querySelectorAll('button[type="submit"]:not([disabled])');
+      for (const btn of submits) {
+        const text = (btn.textContent || '').trim();
+        if (text === '保存' || text === 'Save') return btn;
+      }
+
       node = node.parentElement;
     }
     return null;
