@@ -9,7 +9,7 @@
 | [claude_auto_continue.user.js](claude_auto_continue.user.js) | 「続ける」「再試行」ボタンを自動クリック(個別ON/OFF対応) |
 | [claude_done_beep.user.js](claude_done_beep.user.js) | 出力完了を通知音で知らせる(自動継続対応) |
 | [claude_artifact_diff.user.js](claude_artifact_diff.user.js) | アーティファクト更新時に前バージョンとの差分をブラウザ内表示 |
-| [claude_shift_enter_send.user.js](claude_shift_enter_send.user.js) | Enter で改行、Shift+Enter で送信に変更 |
+| [claude_ctrl_enter_send.user.js](claude_ctrl_enter_send.user.js) | Enter / Shift+Enter で改行、Ctrl+Enter で送信に変更 |
 | [claude_hide_gdrive_button.user.js](claude_hide_gdrive_button.user.js) | ファイル生成カードのGoogle Driveエクスポートボタンを非表示化 |
 | [claude_adaptive_width.user.js](claude_adaptive_width.user.js) | アーティファクト非表示時のみチャット幅を拡張 |
 
@@ -26,7 +26,7 @@
 - [claude_auto_continue.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_auto_continue.user.js)
 - [claude_done_beep.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_done_beep.user.js)
 - [claude_artifact_diff.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_artifact_diff.user.js)
-- [claude_shift_enter_send.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_shift_enter_send.user.js)
+- [claude_ctrl_enter_send.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_ctrl_enter_send.user.js)
 - [claude_hide_gdrive_button.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js)
 - [claude_adaptive_width.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_adaptive_width.user.js)
 
