@@ -1,7 +1,8 @@
 // ==UserScript==
-// @name         Claude.ai 出力完了ビープ
-// @namespace    http://tampermonkey.net/
-// @version      16.0
+// @name         Claude.ai - Done Beep
+// @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
+// @author       KiyonakaNata
+// @version      1.0
 // @description  Claude.aiの出力が完了したら通知音で知らせる（自動継続対応）
 // @match        https://claude.ai/*
 // @grant        none

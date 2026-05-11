@@ -1,7 +1,8 @@
 // ==UserScript==
-// @name         Claude.ai Artifact Diff Viewer
-// @namespace    http://tampermonkey.net/
-// @version      0.5
+// @name         Claude.ai - Artifact Diff Viewer
+// @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
+// @author       KiyonakaNata
+// @version      1.0
 // @description  アーティファクト更新時に前バージョンとのDiffをブラウザ内で表示（外部依存なし）
 // @match        https://claude.ai/*
 // @grant        GM_addStyle

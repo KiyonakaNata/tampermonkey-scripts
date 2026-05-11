@@ -11,6 +11,7 @@
 | [claude_artifact_diff.user.js](claude_artifact_diff.user.js) | アーティファクト更新時に前バージョンとの差分をブラウザ内表示 |
 | [claude_shift_enter_send.user.js](claude_shift_enter_send.user.js) | Enter で改行、Shift+Enter で送信に変更 |
 | [claude_hide_gdrive_button.user.js](claude_hide_gdrive_button.user.js) | ファイル生成カードのGoogle Driveエクスポートボタンを非表示化 |
+| [claude_adaptive_width.user.js](claude_adaptive_width.user.js) | アーティファクト非表示時のみチャット幅を拡張 |
 
 すべて `https://claude.ai/*` に対して動作。
 
@@ -27,6 +28,7 @@
 - [claude_artifact_diff.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_artifact_diff.user.js)
 - [claude_shift_enter_send.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_shift_enter_send.user.js)
 - [claude_hide_gdrive_button.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js)
+- [claude_adaptive_width.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_adaptive_width.user.js)
 
 各スクリプトのヘッダに `@updateURL` / `@downloadURL` が設定されているため、
 **インストール後は git push する度に Tampermonkey が自動更新を取得** します(デフォルト約24時間ごと、手動更新は Tampermonkey ダッシュボードの「アップデートを確認」から)。

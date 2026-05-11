@@ -1,7 +1,8 @@
 // ==UserScript==
-// @name         Claude Shift+Enter to Send
-// @namespace    http://tampermonkey.net/
-// @version      1.2
+// @name         Claude.ai - Shift+Enter to Send
+// @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
+// @author       KiyonakaNata
+// @version      1.0
 // @description  Enter で改行、Shift+Enter で送信に変更
 // @match        https://claude.ai/*
 // @grant        none

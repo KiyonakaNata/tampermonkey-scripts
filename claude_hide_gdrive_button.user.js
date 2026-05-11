@@ -1,6 +1,7 @@
 // ==UserScript==
-// @name         Claude - Hide Google Drive Export Button
-// @namespace    https://claude.ai/
+// @name         Claude.ai - Hide GDrive Button
+// @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
+// @author       KiyonakaNata
 // @version      1.0
 // @description  Claudeのファイル生成カードに表示されるGoogle Driveエクスポートボタンを非表示化
 // @match        https://claude.ai/*

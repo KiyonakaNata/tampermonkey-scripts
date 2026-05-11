@@ -1,7 +1,8 @@
 // ==UserScript==
-// @name         Claude Auto Continue (Lite)
-// @namespace    https://claude.ai
-// @version      7.0
+// @name         Claude.ai - Auto Continue
+// @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
+// @author       KiyonakaNata
+// @version      1.0
 // @description  「続ける」「再試行」ボタンを自動クリック（個別ON/OFF対応）
 // @match        https://claude.ai/*
 // @grant        none
