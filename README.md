@@ -1,8 +1,10 @@
 # tampermonkey-scripts
 
-[Claude.ai](https://claude.ai/) で使う [Tampermonkey](https://www.tampermonkey.net/) 用ユーザースクリプト集。
+[Tampermonkey](https://www.tampermonkey.net/) 用ユーザースクリプト集。
 
 ## スクリプト一覧
+
+### Claude.ai (`https://claude.ai/*`)
 
 | ファイル | 概要 |
 |---|---|
@@ -13,7 +15,14 @@
 | [claude_hide_gdrive_button.user.js](claude_hide_gdrive_button.user.js) | ファイル生成カードのGoogle Driveエクスポートボタンを非表示化 |
 | [claude_adaptive_width.user.js](claude_adaptive_width.user.js) | アーティファクト非表示時のみチャット幅を拡張 |
 
-すべて `https://claude.ai/*` に対して動作。
+### e-typing (`https://*.e-typing.ne.jp/*`)
+
+[AdGuard](https://adguard.com/) で広告ブロックしていることを前提とした作り(広告非表示によるレイアウト/挙動を想定)。
+
+| ファイル | 概要 |
+|---|---|
+| [etyping_space_replay.user.js](etyping_space_replay.user.js) | リザルト画面でスペースキー押下でページをリロードして次のゲームへ |
+| [etyping_practice_new_tab.user.js](etyping_practice_new_tab.user.js) | 練習選択リンクをモーダルではなく新しいタブで開く |
 
 ## インストール
 
@@ -29,6 +38,8 @@
 - [claude_ctrl_enter_send.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_ctrl_enter_send.user.js)
 - [claude_hide_gdrive_button.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js)
 - [claude_adaptive_width.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_adaptive_width.user.js)
+- [etyping_space_replay.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_space_replay.user.js)
+- [etyping_practice_new_tab.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_practice_new_tab.user.js)
 
 各スクリプトのヘッダに `@updateURL` / `@downloadURL` が設定されているため、
 **インストール後は git push する度に Tampermonkey が自動更新を取得** します(デフォルト約24時間ごと、手動更新は Tampermonkey ダッシュボードの「アップデートを確認」から)。
