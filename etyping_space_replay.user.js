@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         e-typing - Space to Replay
+// @name         e-typing - Space to Start/Replay
 // @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
 // @author       KiyonakaNata
-// @version      1.2
-// @description  リザルト画面でスペースキーを押すとページをリロードして次のゲームへ
+// @version      1.3
+// @description  スタート画面/リザルト画面でスペースキーを押してゲーム開始 or リロード
 // @match        *://*.e-typing.ne.jp/*
 // @grant        none
 // @run-at       document-start
@@ -17,32 +17,38 @@
   const TAG = '[etyping_space_replay]';
   console.log(TAG, 'loaded on', location.href);
 
-  // 「もう1回」ボタンが表示中(=リザルト画面)のときだけ Space を奪う。
-  // ゲーム本編の Space(開始キー)を潰さないための条件分岐。
-  function findVisibleReplayButton() {
-    const btn = document.getElementById('replay_btn');
-    if (!btn) return null;
-    if (btn.offsetParent === null) return null; // display:none / 非表示
-    return btn;
+  function visible(el) {
+    return el && el.offsetParent !== null;
   }
 
   function handler(e) {
     if (e.key !== ' ' && e.code !== 'Space') return;
     if (e.repeat) return;
 
-    const btn = findVisibleReplayButton();
-    if (!btn) {
-      console.log(TAG, 'space ignored (replay btn not visible)');
+    const startBtn = document.getElementById('start_btn');
+    const replayBtn = document.getElementById('replay_btn');
+
+    if (visible(startBtn)) {
+      // スタート画面: AdGuard 下でも素のクリックは効くことがあるので試す
+      console.log(TAG, 'space → click start_btn');
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      startBtn.click();
       return;
     }
 
-    // サイトの clickReplayButton は AdGuard 等の隔離コンテキスト下で
-    // parent.location.reload() がクロスオリジンエラーになり死ぬため、
-    // ボタンクリックはせずに自前で reload する。
-    console.log(TAG, 'space → location.reload()');
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    location.reload();
+    if (visible(replayBtn)) {
+      // リザルト画面: サイトの clickReplayButton は AdGuard 等の隔離コンテキスト下で
+      // parent.location.reload() がクロスオリジンエラーになり死ぬため、
+      // ボタンクリックはせずに自前で reload する。
+      console.log(TAG, 'space → location.reload()');
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      location.reload();
+      return;
+    }
+
+    console.log(TAG, 'space ignored (start/replay btn not visible)');
   }
 
   // window / document の両方の capture に登録(サイト側ハンドラより先に発火)
