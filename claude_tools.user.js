@@ -1,17 +1,17 @@
 // ==UserScript==
-// @name         Claude.ai - Utility (all-in-one lite)
+// @name         Claude.ai - Tools
 // @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
 // @author       KiyonakaNata
 // @version      1.0
-// @description  Claude.ai 用の軽量ユーティリティ詰め合わせ。Tampermonkeyメニューから個別ON/OFF (Hide GDrive / Adaptive Width / Ctrl+Enter Send / Done Beep)
+// @description  Claude.ai 向けの複数機能を1スクリプトに統合 (Hide GDrive / Adaptive Width / Ctrl+Enter Send / Done Beep)。Tampermonkeyメニューから個別ON/OFF
 // @match        https://claude.ai/*
 // @match        https://*.claude.ai/*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_registerMenuCommand
 // @run-at       document-start
-// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_utility.user.js
-// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_utility.user.js
+// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_tools.user.js
+// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_tools.user.js
 // ==/UserScript==
 
 (function () {
@@ -40,7 +40,7 @@
     );
   }
 
-  console.log('[claude_utility] enabled:', enabled);
+  console.log('[claude_tools] enabled:', enabled);
 
   // ============================================================
   // Hide GDrive Button: Google Drive エクスポートボタンを非表示
@@ -187,7 +187,7 @@
       const PRELUDE = 0.2; // 200msのスピーカー起こし
       beep(20, 0, PRELUDE, 0.0001); // ほぼ無音(20Hz, 振幅0.0001)
       [1047, 1319, 1568, 2093, 1568, 1319, 1047].forEach((f, i) => beep(f, PRELUDE + i * 0.05));
-      console.log('[claude_utility] done beep 🔔');
+      console.log('[claude_tools] done beep 🔔');
     }
 
     function isStopPresent() {

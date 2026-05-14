@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name         e-typing - Utility (all-in-one)
+// @name         e-typing - Tools
 // @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
 // @author       KiyonakaNata
 // @version      1.0
-// @description  e-typing用ユーティリティ詰め合わせ。Tampermonkeyメニューから個別ON/OFF (新タブ / Spaceリプレイ / ダーク配色 / カラムスタッカード)
+// @description  e-typing 向けの複数機能を1スクリプトに統合 (新タブ / Spaceリプレイ / ダーク配色 / カラムスタッカード)。Tampermonkeyメニューから個別ON/OFF
 // @match        *://*.e-typing.ne.jp/*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_registerMenuCommand
 // @run-at       document-start
-// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_utility.user.js
-// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_utility.user.js
+// @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_tools.user.js
+// @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_tools.user.js
 // ==/UserScript==
 
 (function () {
@@ -39,7 +39,7 @@
     );
   }
 
-  console.log('[etyping_utility] enabled:', enabled);
+  console.log('[etyping_tools] enabled:', enabled);
 
   // ============================================================
   // 新タブ: 練習リンクをモーダル(iframe)ではなく新タブで開く
