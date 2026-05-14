@@ -21,8 +21,16 @@
 
 | ファイル | 概要 |
 |---|---|
-| [etyping_space_replay.user.js](etyping_space_replay.user.js) | リザルト画面でスペースキー押下でページをリロードして次のゲームへ |
-| [etyping_practice_new_tab.user.js](etyping_practice_new_tab.user.js) | 練習選択リンクをモーダルではなく新しいタブで開く |
+| [etyping_utility.user.js](etyping_utility.user.js) | 汎用ユーティリティ詰め合わせ。Tampermonkeyメニューから個別ON/OFF。下記4機能を内包: |
+| | ・**New Tab**: 練習リンクをモーダルではなく新タブで開く |
+| | ・**Space Replay**: スタート/リザルト画面でスペース押下でゲーム開始 or リロード |
+| | ・**Dark Mode**: タイピングアプリ画面全体をダーク配色に |
+| | ・**Column Staggered**: キーボードの段ごとの横ズレを排除し縦に整列 |
+| [etyping_onishi_keyboard.user.js](etyping_onishi_keyboard.user.js) | 仮想キーボードの表示・次キーハイライト・指ガイドをQWERTY→[大西配列](https://o24.works/layout/)に置換 |
+
+全機能ONの状態(タイピング画面):
+
+![etyping_utility preview](img/etyping_utility_preview.jpg)
 
 ## インストール
 
@@ -43,8 +51,8 @@
 
 #### e-typing
 
-- [etyping_space_replay.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_space_replay.user.js)
-- [etyping_practice_new_tab.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_practice_new_tab.user.js)
+- [etyping_utility.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_utility.user.js)
+- [etyping_onishi_keyboard.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/etyping_onishi_keyboard.user.js)
 
 各スクリプトのヘッダに `@updateURL` / `@downloadURL` が設定されているため、
 **インストール後は git push する度に Tampermonkey が自動更新を取得** します(デフォルト約24時間ごと、手動更新は Tampermonkey ダッシュボードの「アップデートを確認」から)。
@@ -54,3 +62,7 @@
 - ファイル名にはバージョンを含めない
 - バージョンはスクリプト内の `@version` ヘッダで管理する
 - 変更履歴は git のコミット履歴を参照
+
+## License
+
+[MIT License](LICENSE) — 改変・再配布・商用利用すべて自由です(著作権表記とライセンス文の同梱のみ条件)。
