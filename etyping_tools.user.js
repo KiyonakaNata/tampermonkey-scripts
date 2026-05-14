@@ -2,7 +2,7 @@
 // @name         e-typing - Tools
 // @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
 // @author       KiyonakaNata
-// @version      1.0
+// @version      1.1
 // @description  e-typing 向けの複数機能を1スクリプトに統合 (新タブ / Spaceリプレイ / ダーク配色 / カラムスタッカード)。Tampermonkeyメニューから個別ON/OFF
 // @match        *://*.e-typing.ne.jp/*
 // @grant        GM_setValue
@@ -125,10 +125,10 @@
 
   // ============================================================
   // Dark Mode: タイピングアプリ画面全体をダーク配色
-  // (selectorが /app/ 配下にしか存在しないものが大半なので、
-  //  トップページに当ててもほぼ無害)
+  // /app/ 配下のみ適用 (トップページ等にダーク背景が漏れるのを防ぐ)
   // ============================================================
   function setupDarkMode() {
+    if (!location.pathname.startsWith('/app/')) return;
     function inject() {
       if (document.getElementById('etyping-dark-style')) return;
       const style = document.createElement('style');
