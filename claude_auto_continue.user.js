@@ -2,10 +2,12 @@
 // @name         Claude.ai - Auto Continue
 // @namespace    https://github.com/KiyonakaNata/tampermonkey-scripts
 // @author       KiyonakaNata
-// @version      1.0
-// @description  「続ける」「再試行」ボタンを自動クリック（個別ON/OFF対応）
+// @version      1.1
+// @description  「続ける」「再試行」ボタンを自動クリック。Tampermonkeyメニューから個別ON/OFF
 // @match        https://claude.ai/*
-// @grant        none
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_registerMenuCommand
 // @run-at       document-idle
 // @updateURL    https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_auto_continue.user.js
 // @downloadURL  https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_auto_continue.user.js
@@ -14,18 +16,28 @@
 (function () {
   'use strict';
 
+  // --- 永続化フラグ(Tampermonkeyメニューからトグル可) ---
   const CONFIG = {
     pollInterval: 10000,
     clickDelay: 1000,
     debounceMs: 3000,
     maxAutoClicks: 20,
     maxRetries: 3,
-    enabled: true,
 
-    // --- 個別フラグ ---
-    autoContinue: true,   // 「続ける」を自動クリック
-    autoRetry: false,     // 「再試行」を自動クリック
+    autoContinue: GM_getValue('autoContinue', true),  // 「続ける」を自動クリック
+    autoRetry:    GM_getValue('autoRetry',    false), // 「再試行」を自動クリック
   };
+
+  // メニュー登録: トグル → 値を反転して保存 → リロードで反映
+  // (スクリプト自体のON/OFFはTampermonkey拡張本体の機能を使う)
+  GM_registerMenuCommand(
+    `Auto Continue: ${CONFIG.autoContinue ? 'ON' : 'OFF'}`,
+    () => { GM_setValue('autoContinue', !CONFIG.autoContinue); location.reload(); }
+  );
+  GM_registerMenuCommand(
+    `Auto Retry: ${CONFIG.autoRetry ? 'ON' : 'OFF'}`,
+    () => { GM_setValue('autoRetry', !CONFIG.autoRetry); location.reload(); }
+  );
 
   // テキスト → カテゴリのマッピング
   const BUTTON_MAP = {
@@ -153,7 +165,6 @@
   // メイン処理
   // ============================
   function check() {
-    if (!CONFIG.enabled) return;
 
     const currentId = getCurrentMessageId();
     if (currentId !== lastMessageId) {
@@ -235,26 +246,10 @@
   });
 
   if (isTabVisible) startPolling();
-  log(`v7 起動 ✔（続ける:${CONFIG.autoContinue} / 再試行:${CONFIG.autoRetry}）`);
+  log(`起動 ✔ (続ける:${CONFIG.autoContinue} / 再試行:${CONFIG.autoRetry})`);
 
-  // ============================================================
-  // コンソール操作リファレンス（F12 → Console から実行）
-  // ============================================================
-  // claudeAutoContinue.enable()          … スクリプト全体を有効化
-  // claudeAutoContinue.disable()         … スクリプト全体を無効化
-  // claudeAutoContinue.reset()           … クリックカウンタをリセット
-  // claudeAutoContinue.setContinue(true) … 「続ける」の自動クリックを ON
-  // claudeAutoContinue.setContinue(false)… 「続ける」の自動クリックを OFF
-  // claudeAutoContinue.setRetry(true)    … 「再試行」の自動クリックを ON
-  // claudeAutoContinue.setRetry(false)   … 「再試行」の自動クリックを OFF
-  // claudeAutoContinue.status()          … 現在の設定・状態を一覧表示
-  // ============================================================
-  window.claudeAutoContinue = {
-    enable()  { CONFIG.enabled = true;  log('有効化'); },
-    disable() { CONFIG.enabled = false; log('無効化'); },
-    reset()   { clickCount = 0; retryCount = 0; log('カウンタリセット'); },
-    setContinue(v) { CONFIG.autoContinue = !!v; log(`続ける: ${CONFIG.autoContinue}`); },
-    setRetry(v)    { CONFIG.autoRetry = !!v;    log(`再試行: ${CONFIG.autoRetry}`); },
-    status()  { console.table({ ...CONFIG, clickCount, retryCount, isTabVisible }); },
-  };
+  // 操作は Tampermonkey 拡張アイコン → スクリプト名のサブメニューから:
+  //   - Auto Continue (ON/OFF トグル)
+  //   - Auto Retry    (ON/OFF トグル)
+  // (スクリプト全体のON/OFFはTampermonkey本体の機能を使う)
 })();

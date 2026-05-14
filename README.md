@@ -8,12 +8,13 @@
 
 | ファイル | 概要 |
 |---|---|
-| [claude_auto_continue.user.js](claude_auto_continue.user.js) | 「続ける」「再試行」ボタンを自動クリック(個別ON/OFF対応) |
-| [claude_done_beep.user.js](claude_done_beep.user.js) | 出力完了を通知音で知らせる(自動継続対応) |
+| [claude_utility.user.js](claude_utility.user.js) | 軽量ユーティリティ詰め合わせ。Tampermonkeyメニューから個別ON/OFF。下記4機能を内包: |
+| | ・**Hide GDrive Button**: ファイル生成カードのGoogle Driveエクスポートボタンを非表示化 |
+| | ・**Adaptive Width**: アーティファクト非表示時のみチャット幅を拡張 |
+| | ・**Ctrl+Enter Send**: Enter / Shift+Enter で改行、Ctrl+Enter で送信 |
+| | ・**Done Beep**: 出力完了時にWebAudio合成のチャイム音(自動継続対応) |
+| [claude_auto_continue.user.js](claude_auto_continue.user.js) | 「続ける」「再試行」ボタンを自動クリック(メニューから個別ON/OFF) |
 | [claude_artifact_diff.user.js](claude_artifact_diff.user.js) | アーティファクト更新時に前バージョンとの差分をブラウザ内表示 |
-| [claude_ctrl_enter_send.user.js](claude_ctrl_enter_send.user.js) | Enter / Shift+Enter で改行、Ctrl+Enter で送信に変更 |
-| [claude_hide_gdrive_button.user.js](claude_hide_gdrive_button.user.js) | ファイル生成カードのGoogle Driveエクスポートボタンを非表示化 |
-| [claude_adaptive_width.user.js](claude_adaptive_width.user.js) | アーティファクト非表示時のみチャット幅を拡張 |
 
 ### e-typing (`https://*.e-typing.ne.jp/*`)
 
@@ -42,12 +43,9 @@
 
 #### Claude.ai
 
+- [claude_utility.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_utility.user.js)
 - [claude_auto_continue.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_auto_continue.user.js)
-- [claude_done_beep.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_done_beep.user.js)
 - [claude_artifact_diff.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_artifact_diff.user.js)
-- [claude_ctrl_enter_send.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_ctrl_enter_send.user.js)
-- [claude_hide_gdrive_button.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_hide_gdrive_button.user.js)
-- [claude_adaptive_width.user.js](https://raw.githubusercontent.com/KiyonakaNata/tampermonkey-scripts/main/claude_adaptive_width.user.js)
 
 #### e-typing
 
